@@ -1,33 +1,35 @@
 <template>
   <div id="app">
-    <span class="message">
-      Vue 2.7.3
-    </span>
+    <Tree :tree="tree" />
   </div>
 </template>
 
-<script>
-import { ref, defineComponent } from "vue";
-export default defineComponent({
-  name: "App",
-  setup() {
-    const a = { a: ref(1) };
-    console.log(a);
+<script lang="ts">
+  import Vue from "vue";
 
-    return {
-      a,
-    };
-  },
-});
+  import Tree from "@/components/Tree/Tree.vue";
+
+  import { data as tree } from "@/data/tree"
+
+  export default Vue.extend({
+    name: "App",
+    components: {
+      Tree,
+    },
+    data() {
+      return {
+        tree,
+      }
+    }
+  });
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>
